@@ -26,6 +26,7 @@ namespace attendance.ViewModel
             _productService = service;
 
             Title = "Products Page";
+
         }
     
       

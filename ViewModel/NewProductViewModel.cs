@@ -24,7 +24,7 @@ namespace attendance.ViewModel
 
 
         [RelayCommand]
-        async void GetProductsFromDb()
+        async Task GetProductsFromDb()
         {
             var products = await _productService.GetItemsAsync();
             ProductCollection.Clear();
@@ -50,8 +50,46 @@ namespace attendance.ViewModel
         [RelayCommand]
       async void SaveProduct()
         {
-            Product product = new Product() {ProductName=Name,Cost=ProductCost};
+            Product product = new Product() {ProductName=Name,Cost=Convert.ToDecimal(ProductCost) };
              await _productService.CreateItemAsync(product);
+            Name = "";
+            ProductCost = 0;
+            await GetProductsFromDb();
+
+        }
+        [RelayCommand]
+        async void DeleteProduct(Product product)
+        {
+            if (product is null) return;
+            await Shell.Current.DisplayAlert("Warning", $"Product {product.ProductName} is to be deleted!!!", "Ok");
+
+            await _productService.DeleteItemAsync(product);
+            await GetProductsFromDb();
+            //await Shell.Current.GoToAsync($"{nameof(ProductDetails)}", true, new Dictionary<string, object> { { "ProductParam", product } });
+
+        }
+      public  async Task GetProductsAsync()
+        {
+            var products = await _productService.GetItemsAsync();
+            ProductCollection.Clear();
+            if (IsBusy) return;
+            try
+            {
+                IsBusy = true;
+                foreach (var product in products)
+                {
+                    ProductCollection.Add(product);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                await Shell.Current.DisplayAlert("Warning", $"Error in getting products, {ex.Message}", "Ok");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
         [ObservableProperty]

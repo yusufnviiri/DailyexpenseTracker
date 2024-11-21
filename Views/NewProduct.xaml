@@ -18,27 +18,39 @@
             HorizontalOptions="Start" />
         <Entry Text="{Binding Name}"  />
         <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9"
-      Text="{Binding ProductCost}"
+      Text="Cost"
       VerticalOptions="Center" 
   HorizontalOptions="Start" />
-        <Entry x:Name="pCost" Keyboard="Numeric" Margin="0,9,0,9" />
+            <Entry Text="{Binding ProductCost}" Keyboard="Numeric" Margin="0,9,0,9" />
             <Button MaximumWidthRequest="400" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}"  Text="Save" Command="{Binding SaveProductCommand}" />
 
             <CollectionView  ItemsSource="{Binding ProductCollection}" >
 
                 <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="model:Product">
+                        <Frame BackgroundColor="Wheat" Margin="10">
 
-                        <VerticalStackLayout Spacing="5" BackgroundColor="wheat" Padding="10" WidthRequest="600" >
+
+                            <VerticalStackLayout Spacing="5" BackgroundColor="wheat" Padding="10" WidthRequest="600" >
                             <Label TextColor="Black" Text="{Binding ProductId}"/>
                                 <Label TextColor="Black" Text="{Binding ProductName}"/>
                                 <Label TextColor="Black" Text="{Binding Cost}"/>
+                        </VerticalStackLayout>
+                            <Frame.GestureRecognizers >
+                                <TapGestureRecognizer NumberOfTapsRequired="2" CommandParameter="{Binding .} "
+                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NewProductViewModel}},Path = DeleteProductCommand}"/>
 
-                    </VerticalStackLayout>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                            </Frame.GestureRecognizers>
+                        </Frame>
+
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+
+            </CollectionView>
         </VerticalStackLayout>
+        
 
     </ScrollView>
 

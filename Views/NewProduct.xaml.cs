@@ -10,15 +10,17 @@ public partial class NewProduct : ContentPage
 {
     private readonly SQLiteAsyncConnection _database;
 
-
+    NewProductViewModel viewModel;
     public NewProduct(NewProductViewModel productViewModel)
     {
         InitializeComponent();
         BindingContext = productViewModel;
+        viewModel = productViewModel;
     }
-    protected override void OnNavigatedTo(NavigatedToEventArgs args)
-    {
+    protected override async void OnNavigatedTo(NavigatedToEventArgs args)
+    {       
         base.OnNavigatedTo(args);
+        await viewModel.GetProductsAsync();
     }
 
 
