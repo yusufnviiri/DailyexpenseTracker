@@ -1,24 +1,37 @@
-﻿namespace attendance
+﻿using attendance.Views;
+using Microsoft.Maui.Controls.Platform;
+
+namespace attendance
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
 
         public MainPage()
         {
             InitializeComponent();
+            ;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void CreateProduct(object sender, EventArgs e)
         {
-            count++;
+            await Shell.Current.GoToAsync($"{nameof(NewProduct)}", true);
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
 
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        }
+
+        private void GetProducts(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GetTransactions(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateTransaction(object sender, EventArgs e)
+        {
+
         }
     }
 

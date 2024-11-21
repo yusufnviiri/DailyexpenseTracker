@@ -1,5 +1,6 @@
 ﻿using attendance.Models;
 using attendance.Services;
+using attendance.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
@@ -91,7 +92,18 @@ namespace attendance.ViewModel
                 IsBusy = false;
             }
         }
+        [RelayCommand]
+        async void ProductDetails(Product product)
+        {
+            if (product is null) return;
+            //await Shell.Current.GoToAsync($"{nameof(ProductDetails)}", true, new Dictionary<string, object> { { "ProductParam", product } });
+            NewProduct page = new NewProduct(this);
+            await page.ProductDetails(product);
+            
 
+
+        }
+      
         [ObservableProperty]
         string? name;
         [ObservableProperty]

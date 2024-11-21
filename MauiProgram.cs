@@ -1,6 +1,7 @@
 ﻿using attendance.Services;
 using attendance.ViewModel;
 using attendance.Views;
+using CommunityToolkit.Maui;
 using Microsoft.Extensions.Logging;
 
 namespace attendance
@@ -12,6 +13,7 @@ namespace attendance
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -20,14 +22,11 @@ namespace attendance
             builder.Services.AddSingleton<ProductViewModel>();
             builder.Services.AddSingleton<Products>();
             builder.Services.AddSingleton<NewProduct>();
-
             builder.Services.AddSingleton<ProductService>();
             builder.Services.AddSingleton<NewProductService>();
-
             builder.Services.AddTransient<ProductDetailsViewModel>();
             builder.Services.AddTransient<NewProductViewModel>();
 
-            builder.Services.AddTransient<ProductDetails>();
 
 #if DEBUG
             builder.Logging.AddDebug();

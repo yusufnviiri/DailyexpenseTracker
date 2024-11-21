@@ -20,8 +20,12 @@ namespace attendance.Services
         public async Task<IEnumerable<Product>> GetItemsAsync()
         {
             var products = await _database.Table<Product>().ToListAsync();
-            return products;
-           
+            //return products.OrderByDescending(k=>k.ProductId);
+            //return products.OrderBy(k=>k.ProductId).Reverse();
+            return products.OrderBy(k => k.ProductName);
+
+
+
         }
         public async Task<Product> GetItemAsync(int id) => await _database.FindAsync<Product>(id);
         public async Task CreateItemAsync(Product item)

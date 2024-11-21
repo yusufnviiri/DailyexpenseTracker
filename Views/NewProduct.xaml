@@ -9,7 +9,7 @@
     <ScrollView>
 
 
-        <VerticalStackLayout MaximumWidthRequest="400">
+        <VerticalStackLayout MaximumWidthRequest="300">
             <Button MaximumWidthRequest="150" MaximumHeightRequest="90"  Text="Get Products"  Margin="8" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetProductsFromDbCommand}"  />
 
             <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9"
@@ -22,23 +22,32 @@
       VerticalOptions="Center" 
   HorizontalOptions="Start" />
             <Entry Text="{Binding ProductCost}" Keyboard="Numeric" Margin="0,9,0,9" />
-            <Button MaximumWidthRequest="400" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}"  Text="Save" Command="{Binding SaveProductCommand}" />
+            <Button MaximumWidthRequest="400" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}"  Text="Save" Command="{Binding SaveProductCommand}" Margin="0,0,0,10" />
+            <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9"
+    Text="Products"
+    VerticalOptions="Center" 
+HorizontalOptions="Center" />
 
-            <CollectionView  ItemsSource="{Binding ProductCollection}" >
+            <CollectionView  ItemsSource="{Binding ProductCollection}" MaximumHeightRequest="80"   >
 
-                <CollectionView.ItemTemplate>
+                <CollectionView.ItemTemplate >
                 <DataTemplate x:DataType="model:Product">
-                        <Frame BackgroundColor="Wheat" Margin="10">
+                        <Frame  Margin="0" Padding="0" MaximumHeightRequest="60" VerticalOptions="Center" >
+                            <VerticalStackLayout  BackgroundColor="DarkGreen" Padding="1"  MinimumHeightRequest="30"  >
 
 
-                            <VerticalStackLayout Spacing="5" BackgroundColor="wheat" Padding="10" WidthRequest="600" >
-                            <Label TextColor="Black" Text="{Binding ProductId}"/>
-                                <Label TextColor="Black" Text="{Binding ProductName}"/>
-                                <Label TextColor="Black" Text="{Binding Cost}"/>
-                        </VerticalStackLayout>
-                            <Frame.GestureRecognizers >
+                                <Grid Padding="4"  RowDefinitions="*" ColumnDefinitions="*,*,auto" HorizontalOptions="StartAndExpand" MaximumHeightRequest="30">
+
+                                    <Label Grid.Row="0" Grid.Column="1" TextColor="white" FontAttributes="Bold" Padding="10,0"  Text="{Binding ProductName}"/>
+                                    <Label Grid.Row="0" Grid.Column="2"  TextColor="Yellow"  Text="{Binding Cost}"/>
+
+                                </Grid>
+
+                            </VerticalStackLayout>
+
+        <Frame.GestureRecognizers >
                                 <TapGestureRecognizer NumberOfTapsRequired="2" CommandParameter="{Binding .} "
-                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NewProductViewModel}},Path = DeleteProductCommand}"/>
+                                          Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:NewProductViewModel}},Path = ProductDetailsCommand}" />
 
                             </Frame.GestureRecognizers>
                         </Frame>

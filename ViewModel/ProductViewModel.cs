@@ -58,7 +58,7 @@ namespace attendance.ViewModel
         async void ProductDetails(Product product)
         {
             if (product is null) return;
-            await Shell.Current.GoToAsync($"{nameof(ProductDetails)}", true, new Dictionary<string, object> { { "ProductParam", product } });
+            //await Shell.Current.GoToAsync($"{nameof(ProductDetails)}", true, new Dictionary<string, object> { { "ProductParam", product } });
 
         }
         [RelayCommand]

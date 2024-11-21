@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+    <mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+           xmlns:viewmodel="clr-namespace:attendance.ViewModel"
+           Size="600,500"
+           xmlns:model="clr-namespace:attendance.Models"  
+           VerticalOptions="Center"
+           HorizontalOptions="Center"             
+           CanBeDismissedByTappingOutsideOfPopup="False" 
+             x:Class="attendance.Views.ProductDetailsPopup" >
+
+        <Border Stroke="{StaticResource MidnightBlue}"
+            StrokeThickness="3"
+            Padding="0"
+            Margin="5">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5"/>
+            </Border.StrokeShape>
+            <ScrollView>
+
+                <VerticalStackLayout BackgroundColor="Green">
+                    <Label 
+            Text="{Binding Product.ProductId}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+                    <Label 
+       Text="{Binding Product.ProductName}"
+       VerticalOptions="Center" 
+       HorizontalOptions="Center" />
+                    <Label 
+       Text="{Binding Product.Cost}"
+       VerticalOptions="Center" 
+       HorizontalOptions="Center" />
+                <Grid VerticalOptions="EndAndExpand" ColumnDefinitions="2*,*"  Margin="10,15">
+                    <Button Grid.Column="0" Text="Deposit" 
+              Clicked="closepopup"/>
+                    <Button Grid.Column="1" Text="close" 
+              BackgroundColor="red"
+              Clicked="closepopup"/>
+                </Grid>
+            </VerticalStackLayout>
+                
+            </ScrollView>
+        </Border>
+    </mct:Popup>
+    

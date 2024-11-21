@@ -1,5 +1,6 @@
 using attendance.Models;
 using attendance.ViewModel;
+using CommunityToolkit.Maui.Views;
 using Microsoft.Maui.Graphics.Text;
 using SQLite;
 using System.Collections.ObjectModel;
@@ -21,7 +22,18 @@ public partial class NewProduct : ContentPage
     {       
         base.OnNavigatedTo(args);
         await viewModel.GetProductsAsync();
+        
     }
+   public async Task ProductDetails(Product product)
+    {
+        //await this.ShowPopupAsync(new ProductDetailsPopup(product));
 
+        var DetailsPage = new ProductDetailsPopup(product);
+         Shell.Current.CurrentPage.ShowPopup(DetailsPage);
+
+
+
+
+    }
 
 }

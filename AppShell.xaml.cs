@@ -7,7 +7,6 @@ namespace attendance
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ProductDetails),typeof(ProductDetails));
             Routing.RegisterRoute(nameof(NewProduct), typeof(NewProduct));
 
         }
