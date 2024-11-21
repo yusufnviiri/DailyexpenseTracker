@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:attendance.Models"
+             x:Class="attendance.oldFiles.NewProduct"
+             Title="NewProduct">
+    <ScrollView>
+
+
+        <VerticalStackLayout MaximumWidthRequest="400">
+            <Button MaximumWidthRequest="400" MaximumHeightRequest="90"  Text="Products" Clicked="GetProductsFromDb" />
+
+            <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9"
+            Text="Name"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start" />
+            <Entry x:Name="pName" />
+            <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9"
+      Text="Cost"
+      VerticalOptions="Center" 
+  HorizontalOptions="Start" />
+            <Entry x:Name="pCost" Keyboard="Numeric" Margin="0,9,0,9" />
+            <Button MaximumWidthRequest="400" MaximumHeightRequest="90" Grid.Column="1" Text="Create product" Clicked="Save" />
+
+            <CollectionView x:Name="ProductList">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+
+                        <VerticalStackLayout Spacing="5" BackgroundColor="wheat" Padding="10" WidthRequest="600" >
+                            <Label TextColor="Black" Text="{Binding ProductId}"/>
+                            <Label TextColor="Black" Text="{Binding ProductName}"/>
+                            <Label TextColor="Black" Text="{Binding Cost}"/>
+
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+
+    </ScrollView>
+</ContentPage>

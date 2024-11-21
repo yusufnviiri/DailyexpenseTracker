@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="attendance.Views.Products"
+             xmlns:model="clr-namespace:attendance.Models"
+             xmlns:viewmodel="clr-namespace:attendance.ViewModel"
+             x:DataType="viewmodel:ProductViewModel"
+             
+             Title="{Binding Title}">
+    <Grid ColumnDefinitions="*,*" ColumnSpacing="5" RowDefinitions="*,Auto" RowSpacing="2">
+
+
+        <CollectionView  ItemsSource="{Binding ProductCollection}" >
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Product">
+                    <Frame BackgroundColor="Wheat" Margin="10">
+                        <VerticalStackLayout>
+                        <Label Text="{Binding ProductId}" TextColor="Red" FontSize="11" />
+                        <Label Text="{Binding ProductName}" TextColor="Red" FontSize="11"/>
+                        <Label Text="{Binding Cost}" TextColor="Red" FontSize="11"/>
+                        </VerticalStackLayout>
+                        <Frame.GestureRecognizers >
+                            <TapGestureRecognizer CommandParameter="{Binding .}"
+                                                  Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ProductViewModel}},Path = ProductDetailsCommand}"/>                
+
+                        </Frame.GestureRecognizers>                       
+                    </Frame>
+
+
+                </DataTemplate>  
+            </CollectionView.ItemTemplate>
+            
+            
+        </CollectionView>
+        <Grid  RowDefinitions="*,*" ColumnDefinitions="*,*">
+
+            <Button MaximumWidthRequest="150" MaximumHeightRequest="40" Grid.Column="0"  Text="Get Products" Grid.Row="1" Margin="8" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetProductsCommand}"  />
+            <Button MaximumWidthRequest="150" MaximumHeightRequest="40" Grid.Row="0" Grid.Column="0" Text="Create product" Command="{Binding AddProductPageCommand}" />
+        </Grid>
+
+        <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" HorizontalOptions="Fill"/>
+
+    </Grid>
+</ContentPage>

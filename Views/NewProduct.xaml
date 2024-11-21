@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:attendance.Models"
+             xmlns:viewmodel="clr-namespace:attendance.ViewModel"
+             x:DataType="viewmodel:NewProductViewModel"
+             x:Class="attendance.Views.NewProduct"
+             Title="{Binding Title}">
+    <ScrollView>
+
+
+        <VerticalStackLayout MaximumWidthRequest="400">
+            <Button MaximumWidthRequest="150" MaximumHeightRequest="90"  Text="Get Products"  Margin="8" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetProductsFromDbCommand}"  />
+
+            <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9"
+            Text="Name"
+            VerticalOptions="Center" 
+            HorizontalOptions="Start" />
+        <Entry Text="{Binding Name}"  />
+        <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9"
+      Text="{Binding ProductCost}"
+      VerticalOptions="Center" 
+  HorizontalOptions="Start" />
+        <Entry x:Name="pCost" Keyboard="Numeric" Margin="0,9,0,9" />
+            <Button MaximumWidthRequest="400" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}"  Text="Save" Command="{Binding SaveProductCommand}" />
+
+            <CollectionView  ItemsSource="{Binding ProductCollection}" >
+
+                <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Product">
+
+                        <VerticalStackLayout Spacing="5" BackgroundColor="wheat" Padding="10" WidthRequest="600" >
+                            <Label TextColor="Black" Text="{Binding ProductId}"/>
+                                <Label TextColor="Black" Text="{Binding ProductName}"/>
+                                <Label TextColor="Black" Text="{Binding Cost}"/>
+
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>

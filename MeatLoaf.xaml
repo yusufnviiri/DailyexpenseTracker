@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:attendance.Models"
+             x:Class="attendance.MeatLoaf"
+             Title="MeatLoaf">
+    <CollectionView>
+        <CollectionView.ItemsSource>
+            <x:Array Type="{x:Type model:Person}" >
+                <model:Person FirstName="Donald" LastName="Josep Trump" Address="New York"/>
+                <model:Person FirstName="Elon" LastName="Musk" Address="Texas"/>
+                <model:Person FirstName="Joe" LastName="Rogan" Address="Austin"/>
+                <model:Person FirstName="Jimmy" LastName="Hendrix" Address="Seattle"/>
+                <model:Person FirstName="George H" LastName="Devol" Address="Marieta,Ohio "/>
+            </x:Array> 
+        </CollectionView.ItemsSource>
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="model:Person">
+                <VerticalStackLayout Spacing="10"  Padding="10">
+
+                    <VerticalStackLayout Spacing="10" BackgroundColor="Teal" Padding="10" WidthRequest="600" >
+                    <Label Text="{Binding FirstName}"/>
+                    <Label Text="{Binding LastName}"/>
+                    <Label Text="{Binding Address}"/>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </DataTemplate>
+            </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
