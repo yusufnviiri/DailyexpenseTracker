@@ -14,31 +14,31 @@
                 HeightRequest="135"
                 Aspect="AspectFit"
                 SemanticProperties.Description="dot net bot in a race car number eight" />
-            <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*" ColumnSpacing="10" WidthRequest="600" HeightRequest="400" >
-                <Frame CornerRadius="20"
+            <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*" ColumnSpacing="10" WidthRequest="350" HeightRequest="250" >
+                <Frame CornerRadius="5"
                BorderColor="Black"
                        WidthRequest="150" HeightRequest="40"
                        BackgroundColor="DarkGreen"    
                        Padding="5">
 
-                    <Label Text="Products" HorizontalOptions="Center" HorizontalTextAlignment="Center"   VerticalTextAlignment="Center" WidthRequest="80" HeightRequest="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" TextColor="White" FontSize="18" />
+                    <Label Text="Products" HorizontalOptions="Center" HorizontalTextAlignment="Center"   VerticalTextAlignment="Center" WidthRequest="60" HeightRequest="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" TextColor="White" FontSize="14" />
                 </Frame>
 
-                <Button WidthRequest="150" HeightRequest="20" Grid.Row="1" Grid.Column="0" Text="New Product" BackgroundColor="Blue" Clicked="CreateProduct" />
-                <Button WidthRequest="150" HeightRequest="20" Grid.Row="2" Grid.Column="0" Text="All Products" BackgroundColor="Blue" Clicked="GetProducts"  />
+                <Button WidthRequest="150" HeightRequest="35" Grid.Row="1" Grid.Column="0" Text="New Product" BackgroundColor="Blue" Clicked="CreateProduct" />
+                <Button WidthRequest="150" HeightRequest="35" Grid.Row="2" Grid.Column="0" Text="All Products" BackgroundColor="Blue" Clicked="GetProducts"  />
               
-                <Frame CornerRadius="20"
+                <Frame CornerRadius="5"
                        Grid.Row="0" Grid.Column="1"
 BorderColor="Black"
         WidthRequest="150" HeightRequest="40"
         BackgroundColor="DarkGreen"    
         Padding="5">
 
-                    <Label Text="Transactions" HorizontalOptions="Center" HorizontalTextAlignment="Center"   VerticalTextAlignment="Center" WidthRequest="150" HeightRequest="20" FontAttributes="Bold"  TextColor="White" FontSize="18" />
+                    <Label Text="Transactions" HorizontalOptions="Center" HorizontalTextAlignment="Center"   VerticalTextAlignment="Center" WidthRequest="100" HeightRequest="20" FontAttributes="Bold"  TextColor="White" FontSize="14" />
                 </Frame>
 
-                <Button WidthRequest="150" HeightRequest="20" Grid.Row="1" Grid.Column="1" Text="New Transaction" BackgroundColor="Blue" Clicked="CreateTransaction" />
-                <Button WidthRequest="150" HeightRequest="20"  Grid.Row="2" Grid.Column="1" Text="All Transactions" Clicked="GetTransactions" BackgroundColor="Blue"   />
+                <Button WidthRequest="150" HeightRequest="35" Grid.Row="1" Grid.Column="1" Text="New Transaction" BackgroundColor="Blue" Clicked="CreateTransaction" />
+                <Button WidthRequest="150" HeightRequest="35"   Grid.Row="2" Grid.Column="1" Text="All Transactions" Clicked="GetTransactions" BackgroundColor="Blue"   />
 
             </Grid>       
                 </VerticalStackLayout>
