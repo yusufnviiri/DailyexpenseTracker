@@ -8,6 +8,8 @@ namespace attendance
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(NewProduct), typeof(NewProduct));
+            Routing.RegisterRoute(nameof(CreateTransaction), typeof(CreateTransaction));
+
 
         }
     }

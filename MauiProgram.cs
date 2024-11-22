@@ -21,11 +21,20 @@ namespace attendance
                 });
             builder.Services.AddSingleton<ProductViewModel>();
             builder.Services.AddSingleton<Products>();
-            builder.Services.AddSingleton<NewProduct>();
             builder.Services.AddSingleton<ProductService>();
             builder.Services.AddSingleton<NewProductService>();
             builder.Services.AddTransient<ProductDetailsViewModel>();
             builder.Services.AddTransient<NewProductViewModel>();
+            builder.Services.AddSingleton<NewProduct>();
+
+            builder.Services.AddSingleton<TransactionViewModel>();
+            builder.Services.AddSingleton<TransactionService>();
+            builder.Services.AddTransient<TransactionDetailsPopUpViewModel>();
+            builder.Services.AddTransient<CreateTransaction>();
+
+
+
+
 
 
 #if DEBUG

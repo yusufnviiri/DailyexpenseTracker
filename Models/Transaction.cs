@@ -11,10 +11,12 @@ namespace attendance.Models
     {
         [PrimaryKey, AutoIncrement]
         public int TransactionId { get; set; }
-        public int ProductId { get; set; } 
+        public int ProductId { get; set; }
+        public string? ProductName { get; set; }
         public int Quantity { get; set; }
         public string AgentName { get; set; } = string.Empty;
-        public DateTime DateTime { get; set; } = DateTime.Now;
         public decimal SaleValue { get; set; }
+        public DateTime DateOfTransaction { get; set; } = DateTime.Now;
+
     }
 }

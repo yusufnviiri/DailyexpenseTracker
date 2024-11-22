@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+    <mct:Popup xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+           xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+           xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+           xmlns:viewmodel="clr-namespace:attendance.ViewModel"
+           Size="380,350"
+           xmlns:model="clr-namespace:attendance.Views"  
+           VerticalOptions="Center"
+           HorizontalOptions="Center" 
+               x:DataType="viewmodel:TransactionDetailsPopUpViewModel"
+           CanBeDismissedByTappingOutsideOfPopup="False" 
+           x:Class="attendance.Views.TransactionDetailsPopUp" >
+
+        <Border Stroke="{StaticResource MidnightBlue}"
+            StrokeThickness="3"
+            Padding="0"
+            Margin="5">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="5"/>
+            </Border.StrokeShape>
+            <ScrollView>
+          
+            <VerticalStackLayout BackgroundColor="Green">
+                    <Label Text="Update Product Data" TextColor="DarkBlue" BackgroundColor="Yellow" FontAttributes="Bold" FontSize="14" HorizontalTextAlignment="Center" Padding="10" Margin="0,0,0,30"/>
+                <Grid ColumnDefinitions="auto,auto" RowDefinitions="*,*,*,*" ColumnSpacing="10" RowSpacing="10" Margin="10,10,0,40">
+                        <Label Text="ITEM :" TextColor="Wheat" FontAttributes="Bold" 
+                           Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Padding="5,0,5,0"/>
+                        <Label Text="COST :" TextColor="Wheat" FontAttributes="Bold" Grid.Column="0" 
+                           VerticalTextAlignment="Center" Padding="5,0,3,0" Grid.Row="1"  HorizontalTextAlignment="Center" />
+                     
+                    <Label Text="QUANTITY :" TextColor="Wheat" FontAttributes="Bold" 
+                           Grid.Column="0" Grid.Row="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Padding="5,0,5,0"/>
+                    <Label Text="AgentName :" TextColor="Wheat" FontAttributes="Bold" Grid.Column="0" 
+                           VerticalTextAlignment="Center" Padding="5,0,3,0" Grid.Row="3"  HorizontalTextAlignment="Center" />
+                    <Entry Grid.Column="1" Grid.Row="0"  MinimumWidthRequest="150"
+Text="{Binding ProdName }" BackgroundColor="White" 
+VerticalOptions="Center" 
+HorizontalOptions="Start" />
+                    <Entry BackgroundColor="White" Grid.Column="1" Grid.Row="1"
+Text="{Binding SaleValue}" MinimumWidthRequest="150"
+VerticalOptions="Center" 
+HorizontalOptions="Start" />
+                    <Entry Grid.Column="1" Grid.Row="2" MinimumWidthRequest="150"
+Text="{Binding Quantity}" BackgroundColor="White" 
+VerticalOptions="Center" 
+HorizontalOptions="Start" />
+                    <Entry BackgroundColor="White" Grid.Column="1" Grid.Row="3"
+Text="{Binding AgentName}" MinimumWidthRequest="150"
+VerticalOptions="Center" 
+HorizontalOptions="Start" />
+                </Grid>
+
+
+                    <Grid VerticalOptions="EndAndExpand" ColumnDefinitions="*,*,*" ColumnSpacing="10" Margin="10,15">
+                    <Button Grid.Column="0" Text="UPDATE"  BackgroundColor="DarkBlue"  Command="{Binding UpdateTransactionCommand}" 
+              />
+                        <Button Grid.Column="1" Text="CLOSE"
+BackgroundColor="Blue" Command="{Binding CloseCommand}"/>
+                    <Button Grid.Column="2" Text="DELETE"   Command="{Binding DeleteTransactionCommand}" 
+              BackgroundColor="red"
+              />
+                    </Grid>
+                </VerticalStackLayout>
+
+            </ScrollView>
+        </Border>
+    </mct:Popup>

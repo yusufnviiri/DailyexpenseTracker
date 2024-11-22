@@ -19,18 +19,21 @@ namespace attendance
 
         }
 
-        private void GetProducts(object sender, EventArgs e)
+        private async void GetProducts(object sender, EventArgs e)
         {
+            await Shell.Current.GoToAsync($"{nameof(NewProduct)}", true);
 
         }
 
-        private void GetTransactions(object sender, EventArgs e)
+        private async void GetTransactions(object sender, EventArgs e)
         {
+            await Shell.Current.GoToAsync($"{nameof(CreateTransaction)}", true);
 
         }
 
-        private void CreateTransaction(object sender, EventArgs e)
+        private async void CreateTransaction(object sender, EventArgs e)
         {
+            await Shell.Current.GoToAsync($"{nameof(CreateTransaction)}", true);
 
         }
     }

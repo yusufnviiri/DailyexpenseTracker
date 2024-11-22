@@ -34,7 +34,6 @@ namespace attendance.Services
                 await _database.UpdateAsync(item);
             else // Insert new item
                 await _database.InsertAsync(item);
-
         }
         public async Task<int> DeleteItemAsync(Product item) => await _database.DeleteAsync(item);
     }
