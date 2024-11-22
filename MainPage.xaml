@@ -21,7 +21,7 @@
                        BackgroundColor="DarkGreen"    
                        Padding="5">
 
-                    <Label Text="Products" HorizontalOptions="Center" HorizontalTextAlignment="Center"   VerticalTextAlignment="Center" WidthRequest="60" HeightRequest="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" TextColor="White" FontSize="14" />
+                    <Label Text="Products" HorizontalOptions="Center" HorizontalTextAlignment="Center"   VerticalTextAlignment="Center" WidthRequest="100" HeightRequest="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" TextColor="White" FontSize="14" />
                 </Frame>
 
                 <Button WidthRequest="150" HeightRequest="35" Grid.Row="1" Grid.Column="0" Text="New Product" BackgroundColor="Blue" Clicked="CreateProduct" />

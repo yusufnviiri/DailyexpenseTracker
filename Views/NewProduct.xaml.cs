@@ -31,7 +31,7 @@ public partial class NewProduct : ContentPage
         var DetailsPage = new ProductDetailsPopup(product);
          Shell.Current.CurrentPage.ShowPopup(DetailsPage);
 
-
+        
 
 
     }

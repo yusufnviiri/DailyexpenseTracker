@@ -99,11 +99,13 @@ namespace attendance.ViewModel
             //await Shell.Current.GoToAsync($"{nameof(ProductDetails)}", true, new Dictionary<string, object> { { "ProductParam", product } });
             NewProduct page = new NewProduct(this);
             await page.ProductDetails(product);
-            
+
+
+
 
 
         }
-      
+
         [ObservableProperty]
         string? name;
         [ObservableProperty]
