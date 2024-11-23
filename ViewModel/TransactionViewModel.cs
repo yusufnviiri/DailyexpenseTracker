@@ -102,13 +102,13 @@ namespace attendance.ViewModel
             //await Shell.Current.GoToAsync($"{nameof(ProductDetails)}", true, new Dictionary<string, object> { { "ProductParam", product } });
             CreateTransaction page = new  CreateTransaction(this);
             await page.TransactionDetails(transaction);
-
-
-
-
-
         }
-      
+        [RelayCommand]
+        async void TransactionsList()
+        {       
+         await Shell.Current.GoToAsync($"{nameof(TransactionsList)}", true );
+        }
+
         [ObservableProperty]
          int prodId;
         [ObservableProperty]

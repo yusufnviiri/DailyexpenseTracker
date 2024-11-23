@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
-    <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="attendance.Views.TransactionsList"
              xmlns:model="clr-namespace:attendance.Models"
              xmlns:viewmodel="clr-namespace:attendance.ViewModel"
              x:DataType="viewmodel:TransactionViewModel"
-             x:Class="attendance.Views.CreateTransaction"
              Title="{Binding Title}">
-        <ScrollView>
-
-  
+    <ScrollView>
         <VerticalStackLayout MaximumWidthRequest="400">
             <Button MaximumWidthRequest="150" MaximumHeightRequest="90"  Text="Get Transactions"  Margin="8" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetTransactionsFromDbCommand}"  />
 
-                <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9"
+            <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9"
             Text="Item Name"
             VerticalOptions="Center" 
             HorizontalOptions="Start" />
-                <Entry Text="{Binding ProdName}"  />
+            <Entry Text="{Binding ProdName}"  />
             <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9"
 Text="Amount"
 VerticalOptions="Center" 
@@ -33,30 +30,26 @@ Text="Staff Name"
 VerticalOptions="Center" 
 HorizontalOptions="Start" />
             <Entry Text="{Binding AgentName}"  />
-         
-            
-            <Button MaximumWidthRequest="90" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}"  Text="Save" Command="{Binding SaveTransactionCommand}" Margin="0,20,0,20" />
-            <Grid ColumnDefinitions="*,*" RowDefinitions="*" Margin="0,20,0,20">
 
-                <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9" FontSize="14" Grid.Row="0" Grid.Column="0" 
+
+            <Button MaximumWidthRequest="90" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}"  Text="Save" Command="{Binding SaveTransactionCommand}" Margin="0,20,0,20" />
+            <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9" FontSize="14"
     Text="Transactions"
     VerticalOptions="Center" 
 HorizontalOptions="Center" />
-                <Button MaximumWidthRequest="90" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}" Grid.Row="0" Grid.Column="1"   Text="See All" Command="{Binding TransactionsListCommand}"  />
-            </Grid>
 
             <CollectionView  ItemsSource="{Binding TransactionCollection}" MaximumHeightRequest="80"   >
 
-                    <CollectionView.ItemTemplate >
-                        <DataTemplate x:DataType="model:Transaction">
-                            <Frame  Margin="0" Padding="0" MaximumHeightRequest="90" VerticalOptions="Center" >
-                                <VerticalStackLayout  BackgroundColor="DarkGreen" Padding="1"  MinimumHeightRequest="30"  >
+                <CollectionView.ItemTemplate >
+                    <DataTemplate x:DataType="model:Transaction">
+                        <Frame  Margin="0" Padding="0" MaximumHeightRequest="90" VerticalOptions="Center" >
+                            <VerticalStackLayout  BackgroundColor="DarkGreen" Padding="1"  MinimumHeightRequest="30"  >
 
 
                                 <Grid Padding="4"  ColumnSpacing="3" RowDefinitions="*" ColumnDefinitions="*,auto,auto,auto" HorizontalOptions="StartAndExpand" MaximumHeightRequest="30">
 
-                                        <Label Grid.Row="0" Grid.Column="0" TextColor="white" FontAttributes="Bold" Padding="10,0"  Text="{Binding ProductName}"/>
-                                        <Label Grid.Row="0" Grid.Column="1"  TextColor="Yellow"  Text="{Binding SaleValue}"/>
+                                    <Label Grid.Row="0" Grid.Column="0" TextColor="white" FontAttributes="Bold" Padding="10,0"  Text="{Binding ProductName}"/>
+                                    <Label Grid.Row="0" Grid.Column="1"  TextColor="Yellow"  Text="{Binding SaleValue}"/>
                                     <Label Grid.Row="0" Grid.Column="2"  TextColor="white"  Text="{Binding AgentName}"/>
                                     <Label Grid.Row="0" Grid.Column="3" FontSize="13"  TextColor="Yellow"  Text="{Binding DateOfTransaction}"/>
 
@@ -64,25 +57,23 @@ HorizontalOptions="Center" />
 
                                 </Grid>
 
-                                </VerticalStackLayout>
+                            </VerticalStackLayout>
 
-                                <Frame.GestureRecognizers >
-                                    <TapGestureRecognizer NumberOfTapsRequired="2" CommandParameter="{Binding .} "
+                            <Frame.GestureRecognizers >
+                                <TapGestureRecognizer NumberOfTapsRequired="2" CommandParameter="{Binding .} "
                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:TransactionViewModel}},Path = TransactionDetailsCommand}" />
 
-                                </Frame.GestureRecognizers>
-                            </Frame>
+                            </Frame.GestureRecognizers>
+                        </Frame>
 
 
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
 
 
-                </CollectionView>
-            </VerticalStackLayout>
+            </CollectionView>
+        </VerticalStackLayout>
 
 
-        </ScrollView>
-
-    </ContentPage>
-    
+    </ScrollView>
+</ContentPage>

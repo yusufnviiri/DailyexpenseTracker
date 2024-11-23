@@ -29,6 +29,8 @@ namespace attendance
 
             builder.Services.AddSingleton<TransactionViewModel>();
             builder.Services.AddSingleton<TransactionService>();
+            builder.Services.AddSingleton<TransactionsList>();
+
             builder.Services.AddTransient<TransactionDetailsPopUpViewModel>();
             builder.Services.AddTransient<CreateTransaction>();
 

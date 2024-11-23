@@ -100,10 +100,6 @@ namespace attendance.ViewModel
             NewProduct page = new NewProduct(this);
             await page.ProductDetails(product);
 
-
-
-
-
         }
 
         [ObservableProperty]

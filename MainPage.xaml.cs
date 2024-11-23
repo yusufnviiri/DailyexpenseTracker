@@ -27,7 +27,9 @@ namespace attendance
 
         private async void GetTransactions(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync($"{nameof(CreateTransaction)}", true);
+
+            await Shell.Current.GoToAsync($"{nameof(TransactionsList)}", true);
+
 
         }
 
