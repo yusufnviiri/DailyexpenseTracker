@@ -1,19 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="attendance.MainPage">
-    
+             x:Class="attendance.MainPage">    
 
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="135"
-                Aspect="AspectFit"
-                SemanticProperties.Description="dot net bot in a race car number eight" />
+
+            <Frame CornerRadius="5"
+   BorderColor="Black"
+           WidthRequest="150" HeightRequest="150"
+           BackgroundColor="LightYellow"    
+           Padding="5">
+                <Image
+      Source="coins.JPG"
+      HeightRequest="135"
+      Aspect="AspectFit"
+      SemanticProperties.Description="dot net bot in a race car number eight" />
+            </Frame>
+          
             <Grid RowDefinitions="*,*,*" ColumnDefinitions="*,*" ColumnSpacing="10" WidthRequest="350" HeightRequest="250" >
                 <Frame CornerRadius="5"
                BorderColor="Black"

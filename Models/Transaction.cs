@@ -17,6 +17,7 @@ namespace attendance.Models
         public string AgentName { get; set; } = string.Empty;
         public decimal SaleValue { get; set; }
         public DateTime DateOfTransaction { get; set; } = DateTime.Now;
+        public string DateString { get; set; } = $"{DateTime.Now.Day}/{DateTime.Now.Month}/{DateTime.Now.Year}";
 
     }
 }

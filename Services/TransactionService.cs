@@ -22,9 +22,6 @@ public class TransactionService
         //return products.OrderByDescending(k=>k.ProductId);
         //return products.OrderBy(k=>k.ProductId).Reverse();
         return transactions.OrderBy(k => k.DateOfTransaction);
-
-
-
     }
     public async Task<Transaction> GetItemAsync(int id) => await _database.FindAsync<Transaction>(id);
     public async Task CreateItemAsync(Transaction item)

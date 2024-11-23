@@ -81,7 +81,7 @@ namespace attendance.ViewModel
             {
                 IsBusy = true;
                 foreach (var item in transactions)
-                {
+                { 
                     TransactionCollection.Add(item);
                 }
             }
@@ -129,6 +129,12 @@ namespace attendance.ViewModel
         [ObservableProperty]
 
         decimal saleValue;
+        [ObservableProperty]
+        int dayOfTransaction;
+        [ObservableProperty]
+        int monthOfTransaction;
+        [ObservableProperty]
+        int yearOfTransaction;
 
 
     }
