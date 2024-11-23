@@ -32,7 +32,7 @@
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="5"/>
                             </Border.StrokeShape>
-                            <Entry Text="{Binding ProdName}" Placeholder="Name" FontSize="13"  MaximumWidthRequest="150" MinimumWidthRequest="10"  HorizontalTextAlignment="Center"  MaximumHeightRequest="30"  BackgroundColor="DarkGoldenrod" />
+                            <Entry Text="{Binding ProdName}" Placeholder="Name" FontSize="13"  MaximumWidthRequest="150" MinimumWidthRequest="30"  HorizontalTextAlignment="Center"  MaximumHeightRequest="30"  BackgroundColor="DarkGoldenrod" />
                         </Border>
                         <Border Stroke="{StaticResource Green700}"   StrokeThickness="2"    Padding="0"     Margin="0,10">
                             <Border.StrokeShape>
@@ -47,7 +47,6 @@
                             <Entry Text="{Binding MonthOfTransaction}" Placeholder="Month" FontSize="13"   MaximumHeightRequest="30" BackgroundColor="DarkGoldenrod" />
                         </Border>
                     </FlexLayout>
-
                 </Grid>
 
 
@@ -60,17 +59,17 @@
                     <CollectionView.ItemTemplate >
                         <DataTemplate x:DataType="model:Transaction">
                             <Frame  Margin="0" Padding="0"  VerticalOptions="Center" >
-                                <VerticalStackLayout  BackgroundColor="DarkGreen" Padding="1"  MinimumHeightRequest="30"  >
+                                <VerticalStackLayout  BackgroundColor="DarkGreen"   MinimumHeightRequest="30"  >
 
 
-                                    <Grid Padding="4"  ColumnSpacing="3" RowDefinitions="*" ColumnDefinitions="*,auto,auto,auto" HorizontalOptions="StartAndExpand" MaximumHeightRequest="30">
+                                    <FlexLayout Direction="Row"  JustifyContent="SpaceBetween" AlignItems="Center" Wrap="Wrap">
 
-                                        <Label Grid.Row="0" Grid.Column="0" TextColor="white" FontAttributes="Bold" Padding="10,0"  Text="{Binding ProductName}"/>
-                                        <Label Grid.Row="0" Grid.Column="1"  TextColor="Yellow"  Text="{Binding SaleValue}"/>
-                                        <Label Grid.Row="0" Grid.Column="2"  TextColor="white"  Text="{Binding AgentName}"/>
-                                        <Label Grid.Row="0" Grid.Column="3" FontSize="13"  TextColor="Yellow"  Text="{Binding DateOfTransaction}"/>
+                                            <Label Grid.Row="0" Grid.Column="0" TextColor="white" FontAttributes="Bold" Padding="10,0,0,0" Text="{Binding ProductName}"/>
+                                            <Label Grid.Row="0" Grid.Column="1"  TextColor="Yellow"  Text="{Binding SaleValue}"/>
+                                            <Label Grid.Row="0" Grid.Column="2"  TextColor="PaleVioletRed" FontAttributes="Bold"  Text="{Binding AgentName}"/>
+                                        <Label Grid.Row="0" Grid.Column="3"   TextColor="Yellow"  Text="{Binding DateString}" Padding="0,0,10,0" />
 
-                                    </Grid>
+                                        </FlexLayout>
 
                                 </VerticalStackLayout>
 

@@ -30,13 +30,6 @@
     <Color x:Key="Teal900">#134e4a</Color>
     <Color x:Key="Green700">#14532d</Color>
     <Color x:Key="Purple700">#581c87</Color>
-
-    
-
-    
-
-   
-
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>

@@ -111,7 +111,7 @@ namespace attendance.ViewModel
         [RelayCommand]
         async void BackHome()
         {
-            await Shell.Current.GoToAsync($"..", true);
+            await Shell.Current.GoToAsync(nameof(Home));
         }
        
 
@@ -127,6 +127,9 @@ namespace attendance.ViewModel
 
          string? agentName ;
         [ObservableProperty]
+        string? dateString;
+        [ObservableProperty]
+
 
         decimal saleValue;
         [ObservableProperty]
