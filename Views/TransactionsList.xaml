@@ -8,7 +8,12 @@
              Title="{Binding Title}">
     <ScrollView>
         <VerticalStackLayout MaximumWidthRequest="400">
-            <Button MaximumWidthRequest="150" MaximumHeightRequest="90"  Text="Get Transactions"  Margin="8" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetTransactionsFromDbCommand}"  />
+            <Grid ColumnDefinitions="*,*" RowDefinitions="*" Margin="0,20,0,20">
+
+                <Button MaximumWidthRequest="150" MaximumHeightRequest="90"  Text="Get Transactions"  Margin="8" FontSize="14" Grid.Row="0" Grid.Column="0" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetTransactionsFromDbCommand}"  />
+                <Button MaximumWidthRequest="150" MaximumHeightRequest="90"  Text="Home"  Margin="8" FontSize="14" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsNotBusy}" Command="{Binding BackHomeCommand}"  />
+
+            </Grid>
 
             <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9"
             Text="Item Name"

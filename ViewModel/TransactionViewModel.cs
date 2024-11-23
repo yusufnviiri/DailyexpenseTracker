@@ -108,6 +108,12 @@ namespace attendance.ViewModel
         {       
          await Shell.Current.GoToAsync($"{nameof(TransactionsList)}", true );
         }
+        [RelayCommand]
+        async void BackHome()
+        {
+            await Shell.Current.GoToAsync($"..", true);
+        }
+       
 
         [ObservableProperty]
          int prodId;

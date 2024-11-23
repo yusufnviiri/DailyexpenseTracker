@@ -6,11 +6,12 @@ public partial class TransactionsList : ContentPage
 {
     TransactionViewModel viewModel;
 
-    public TransactionsList(TransactionViewModel viewModel)
+    public TransactionsList(TransactionViewModel transactionViewModel)
 	{
 		InitializeComponent();
-		BindingContext = viewModel;
-	}
+        viewModel = transactionViewModel;
+        BindingContext = viewModel;
+    }
     protected override async void OnNavigatedTo(NavigatedToEventArgs args)
     {
         base.OnNavigatedTo(args);
