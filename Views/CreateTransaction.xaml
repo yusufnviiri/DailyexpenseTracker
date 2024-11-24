@@ -6,16 +6,20 @@
              xmlns:viewmodel="clr-namespace:attendance.ViewModel"
              x:DataType="viewmodel:TransactionViewModel"
              x:Class="attendance.Views.CreateTransaction"
-             Title="{Binding Title}">
-        <ScrollView>
+             Title="{Binding Title}"
+              BackgroundImageSource="wave.JPG">
+
+    <ScrollView>
 
   
         <VerticalStackLayout MaximumWidthRequest="400">
 
             <Grid ColumnDefinitions="*,*" RowDefinitions="*" Margin="0,20,0,20">
 
-                <Button MaximumWidthRequest="150" MaximumHeightRequest="90"  Text="Get Transactions"  Margin="8" FontSize="14" Grid.Row="0" Grid.Column="0" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetTransactionsFromDbCommand}"  />
-                <Button MaximumWidthRequest="150" MaximumHeightRequest="90"  Text="Home"  Margin="8" FontSize="14" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsNotBusy}" Command="{Binding BackHomeCommand}"  />
+                <Button MaximumWidthRequest="130" MaximumHeightRequest="90"  Text="TRANSACTIONS" FontAttributes="Bold"  Margin="8" FontSize="12" TextColor="Wheat" Padding="5" BackgroundColor="DarkBlue" Grid.Row="0" Grid.Column="0" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetTransactionsFromDbCommand}"  />
+
+                <Button MaximumWidthRequest="130" MaximumHeightRequest="90"  Text="HOME" FontAttributes="Bold"  Margin="8" FontSize="12" TextColor="Wheat" Padding="5" BackgroundColor="DarkBlue" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsNotBusy}" Command="{Binding BackHomeCommand}"  />
+              
             
             </Grid>
           
@@ -40,16 +44,15 @@ Text="Staff Name"
 VerticalOptions="Center" 
 HorizontalOptions="Start" />
             <Entry Text="{Binding AgentName}"  />
-         
-            
-            <Button MaximumWidthRequest="90" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}"  Text="Save" Command="{Binding SaveTransactionCommand}" Margin="0,20,0,20" />
+
+            <Button MaximumWidthRequest="90" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}" FontAttributes="Bold"  FontSize="12" TextColor="Wheat" Padding="5" BackgroundColor="DarkBlue"  Text="SAVE" Command="{Binding SaveTransactionCommand}" Margin="0,20,0,20" />
             <Grid ColumnDefinitions="*,*" RowDefinitions="*" Margin="0,20,0,20">
 
                 <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9" FontSize="14" Grid.Row="0" Grid.Column="0" 
     Text="Transactions"
     VerticalOptions="Center" 
 HorizontalOptions="Center" />
-                <Button MaximumWidthRequest="90" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}" Grid.Row="0" Grid.Column="1"   Text="See All" Command="{Binding TransactionsListCommand}"  />
+                <Button MaximumWidthRequest="90" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}" Grid.Row="0" Grid.Column="1" FontAttributes="Bold"  Margin="8" FontSize="12" TextColor="Wheat" Padding="5" BackgroundColor="DarkBlue"  Text="SEE ALL" Command="{Binding TransactionsListCommand}"  />
             </Grid>
 
             <CollectionView  ItemsSource="{Binding TransactionCollection}" MaximumHeightRequest="80"   >
