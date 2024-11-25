@@ -19,6 +19,7 @@ namespace attendance.ViewModel
     {
         public ObservableCollection<Transaction> TransactionCollection { get; set; } = new ObservableCollection<Transaction>();
         private readonly TransactionService _transactionService;
+        List<Transaction> SortedList = [];
         public TransactionViewModel(TransactionService transactionService)
         {
             _transactionService = transactionService;
@@ -105,7 +106,8 @@ namespace attendance.ViewModel
         }
         [RelayCommand]
         async void TransactionsList()
-        {       
+        {
+            SearchProductName = "";
          await Shell.Current.GoToAsync($"{nameof(TransactionsList)}", true );
         }
         [RelayCommand]
@@ -113,7 +115,51 @@ namespace attendance.ViewModel
         {
             await Shell.Current.GoToAsync(nameof(Home));
         }
-       
+        [RelayCommand]
+        async void ClearInputs()
+        {
+            SearchProductName = "";
+            YearOfTransaction = 0;
+            MonthOfTransaction = 0;
+            DayOfTransaction = 0;
+            await GetTransactionsFromDb();
+        }
+        [RelayCommand]
+        async void SearchList()
+        {
+            if (SearchProductName.Length > 1 && MonthOfTransaction<1 && DayOfTransaction<1)
+            {
+
+                SortedList =  TransactionCollection.Where(k => k.ProductName.ToLower().Contains(SearchProductName.ToLower())).ToList();
+                TransactionCollection.Clear();
+                foreach (var item in SortedList)
+                {
+                    TransactionCollection.Add(item);
+                }
+            } else if(SearchProductName.Length < 1 && MonthOfTransaction < 1 && DayOfTransaction > 1)
+            {
+                SortedList = TransactionCollection.Where(k => k.DateOfTransaction.Day.Equals(DayOfTransaction)).ToList();
+                TransactionCollection.Clear();
+                foreach (var item in SortedList)
+                {
+                    TransactionCollection.Add(item);
+                }
+            }
+            else if (SearchProductName.Length < 1 && MonthOfTransaction < 1 && DayOfTransaction < 1)
+            {
+                SortedList = TransactionCollection.Where(k => k.DateOfTransaction.Month.Equals(MonthOfTransaction)).ToList();
+                TransactionCollection.Clear();
+                foreach (var item in SortedList)
+                {
+                    TransactionCollection.Add(item);
+                }
+            }
+            else
+            {
+                await GetTransactionsFromDb();
+
+            }
+        }
 
         [ObservableProperty]
          int prodId;
@@ -129,8 +175,6 @@ namespace attendance.ViewModel
         [ObservableProperty]
         string? dateString;
         [ObservableProperty]
-
-
         decimal saleValue;
         [ObservableProperty]
         int dayOfTransaction;
@@ -138,7 +182,8 @@ namespace attendance.ViewModel
         int monthOfTransaction;
         [ObservableProperty]
         int yearOfTransaction;
-
-
+        [ObservableProperty]
+        string? searchProductName =string.Empty;
+        
     }
 }

@@ -10,21 +10,19 @@
              Title="{Binding Title}"
               BackgroundImageSource="wave.JPG">
 
-    <ScrollView>
-
   
         <VerticalStackLayout MaximumWidthRequest="400" >
-
+        <StackLayout>
             <Grid ColumnDefinitions="*,*" RowDefinitions="*" Margin="0,20,0,20" >
 
-                <Button MaximumWidthRequest="130" MaximumHeightRequest="90"  Text="TRANSACTIONS" FontAttributes="Bold"  Margin="8" FontSize="13" TextColor="Wheat" Padding="5" BackgroundColor="DarkBlue" Grid.Row="0" Grid.Column="0" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetTransactionsFromDbCommand}"  />
-
-                <Button MaximumWidthRequest="130" MaximumHeightRequest="90"  Text="HOME" FontAttributes="Bold"  Margin="8" FontSize="13" TextColor="Wheat" Padding="5" BackgroundColor="DarkBlue" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsNotBusy}" Command="{Binding BackHomeCommand}"  />
-              
+                <Button MaximumWidthRequest="130" MaximumHeightRequest="90"  Text="TRANSACTIONS" FontAttributes="Bold"  Margin="8" FontSize="13" TextColor="Wheat" Padding="5" BackgroundColor="DarkBlue" Grid.Row="0" Grid.Column="0" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetTransactionsFromDbCommand}" />
+                <Button MaximumWidthRequest="130" MaximumHeightRequest="90"  Text="HOME" FontAttributes="Bold"  Margin="8" FontSize="13" TextColor="Wheat" Padding="5" BackgroundColor="DarkBlue" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsNotBusy}" Command="{Binding BackHomeCommand}"  />            
             
             </Grid>
 
-            <VerticalStackLayout BackgroundColor="DarkGoldenrod">
+        </StackLayout>
+        <StackLayout>
+        <VerticalStackLayout BackgroundColor="DarkGoldenrod" >
                 <Label HorizontalTextAlignment="Center" FontAttributes="Bold"  Margin="20,9"
             Text="Item Name"
             VerticalOptions="Center" 
@@ -48,15 +46,18 @@ HorizontalOptions="Start" />
 
            
             <Grid ColumnDefinitions="*,*" RowDefinitions="*" Margin="0,20,0,20">              
-                    <Button MaximumWidthRequest="90" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}" FontAttributes="Bold"   TextColor="Wheat" Padding="5"    Margin="0,9" FontSize="13" Grid.Row="0" Grid.Column="0" BackgroundColor="Indigo"  Text="SAVE" Command="{Binding SaveTransactionCommand}" />
-                    <Button MaximumWidthRequest="90" MaximumHeightRequest="90" IsEnabled="{Binding IsNotBusy}" Grid.Row="0" Grid.Column="1" FontAttributes="Bold"  Margin="8" FontSize="13" TextColor="Wheat" Padding="5" BackgroundColor="DarkBlue"  Text="SEE ALL" Command="{Binding TransactionsListCommand}"  />
+                    <Button MaximumWidthRequest="90" IsEnabled="{Binding IsNotBusy}" FontAttributes="Bold"   TextColor="Wheat" Padding="5"    Margin="0,9" FontSize="13" Grid.Row="0" Grid.Column="0" BackgroundColor="Indigo"  Text="SAVE" Command="{Binding SaveTransactionCommand}" />
+                    <Button MaximumWidthRequest="90"  IsEnabled="{Binding IsNotBusy}" Grid.Row="0" Grid.Column="1" FontAttributes="Bold"  Margin="8" FontSize="13" TextColor="Wheat" Padding="5" BackgroundColor="DarkBlue"  Text="SEE ALL" Command="{Binding TransactionsListCommand}"  />
             </Grid>
             </VerticalStackLayout>
-            <CollectionView  ItemsSource="{Binding TransactionCollection}" MaximumHeightRequest="80" >
+        </StackLayout>
+        <ScrollView>
+        <StackLayout>
+        <CollectionView  ItemsSource="{Binding TransactionCollection}" MaximumHeightRequest="200"  >
 
                     <CollectionView.ItemTemplate >
                         <DataTemplate x:DataType="model:Transaction">
-                            <Frame  Margin="0" Padding="0" MaximumHeightRequest="90" VerticalOptions="Center" >
+                            <Frame  Margin="0" Padding="0"  VerticalOptions="Center" >
                                 <VerticalStackLayout  BackgroundColor="DarkGreen" Padding="1"  MinimumHeightRequest="30"  >                             
 
                                     <FlexLayout Direction="Row"  JustifyContent="SpaceBetween" AlignItems="Center" Wrap="Wrap">
@@ -83,10 +84,11 @@ HorizontalOptions="Start" />
 
 
                 </CollectionView>
+        </StackLayout>
+        </ScrollView>
             </VerticalStackLayout>
 
 
-        </ScrollView>
 
     </ContentPage>
     

@@ -12,56 +12,53 @@
             <RoundRectangle CornerRadius="5"/>
         </Border.StrokeShape>
         <ScrollView BackgroundColor="Black" >
-            <VerticalStackLayout MaximumWidthRequest="400">
+            <VerticalStackLayout MaximumWidthRequest="500">
                 <Grid ColumnDefinitions="*,*" RowDefinitions="*" Margin="0,20,0,20">
-
                     <Button MaximumWidthRequest="100" MaximumHeightRequest="60"  Text="REFRESH"  Margin="8" FontSize="13" Grid.Row="0" Grid.Column="0" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetTransactionsFromDbCommand}"  />
                     <Button MaximumWidthRequest="100" MaximumHeightRequest="90"  Text="HOME"  Margin="8" FontSize="13" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsNotBusy}" Command="{Binding BackHomeCommand}"  />
                 </Grid>
-                <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" Margin="0,20,0,20"  BackgroundColor="SaddleBrown" Padding="1">
+                <Grid ColumnDefinitions="*,*" RowDefinitions="*,*,*" Margin="0,20,0,20"  BackgroundColor="SaddleBrown" Padding="3,10,3,40">
                     <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9" FontSize="14"
-    Text="Sort parameters"     VerticalOptions="Center" HorizontalOptions="Center" TextColor="WhiteSmoke"  Grid.Row="0" Grid.ColumnSpan="2"  />
-                    <FlexLayout Direction="Row"  Grid.Row="1" Grid.ColumnSpan="2" 
-                JustifyContent="SpaceBetween"
-                AlignItems="Center"
-                Wrap="Wrap">
+    Text="Sort parameters"  VerticalOptions="Center" HorizontalOptions="Center" TextColor="WhiteSmoke"  Grid.Row="0" Grid.ColumnSpan="2" />
+                    <FlexLayout Direction="Row"   Grid.Row="1" Grid.ColumnSpan="2" 
+                JustifyContent="SpaceBetween" AlignItems="Center" Wrap="NoWrap" Margin="10">
                         <Border Stroke="{StaticResource Green700}"   StrokeThickness="2"    Padding="0"     Margin="0,10">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="5"/>
                             </Border.StrokeShape>
-                            <Entry Text="{Binding ProdName}" Placeholder="Name" FontSize="13"  MaximumWidthRequest="150" MinimumWidthRequest="30"  HorizontalTextAlignment="Center"  MaximumHeightRequest="30"  BackgroundColor="DarkGoldenrod" />
+                            <Entry Text="{Binding SearchProductName}"  Placeholder="Search by Name " FontSize="13"  MaximumWidthRequest="150" MinimumWidthRequest="30"  HorizontalTextAlignment="Center"  MaximumHeightRequest="30"  BackgroundColor="DarkGoldenrod"  />
                         </Border>
                         <Border Stroke="{StaticResource Green700}"   StrokeThickness="2"    Padding="0"     Margin="0,10">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="5"/>
                             </Border.StrokeShape>
-                            <Entry Text="{Binding DayOfTransaction}" Placeholder="Day" FontSize="13"   MaximumHeightRequest="30" BackgroundColor="DarkGoldenrod" />
+                            <Entry Text="{Binding DayOfTransaction}"  FontSize="13"   MaximumHeightRequest="30" BackgroundColor="DarkGoldenrod"  />
                         </Border>
                         <Border Stroke="{StaticResource Green700}"   StrokeThickness="2"    Padding="0"     Margin="0,10">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="5"/>
                             </Border.StrokeShape>
-                            <Entry Text="{Binding MonthOfTransaction}" Placeholder="Month" FontSize="13"   MaximumHeightRequest="30" BackgroundColor="DarkGoldenrod" />
+                            <Entry Text="{Binding MonthOfTransaction}" FontSize="13"   MaximumHeightRequest="30" BackgroundColor="DarkGoldenrod" />
                         </Border>
                     </FlexLayout>
+                  
+                        <Button MaximumWidthRequest="150" Grid.Row="2" Grid.Column="0"  MaximumHeightRequest="60"  Text="SEARCH"  Margin="10,20,0,0" FontSize="13"  IsEnabled="{Binding IsNotBusy}" Command="{Binding SearchListCommand}"  />
+                    <Button MaximumWidthRequest="150" Grid.Row="2" Grid.Column="1"   MaximumHeightRequest="60" BackgroundColor="LightCoral" Text="CLEAR"  Margin="10,20,0,0" FontSize="13"  IsEnabled="{Binding IsNotBusy}" Command="{Binding ClearInputsCommand}"  />
+
                 </Grid>
-
-
-
                 <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9" FontSize="14"
     Text="Transactions"     VerticalOptions="Center" HorizontalOptions="Center" TextColor="WhiteSmoke" />
+                <ScrollView>
+                    <StackLayout>
+                        <CollectionView  ItemsSource="{Binding TransactionCollection}" MaximumHeightRequest="300"  >
 
-                <CollectionView  ItemsSource="{Binding TransactionCollection}"   >
 
                     <CollectionView.ItemTemplate >
                         <DataTemplate x:DataType="model:Transaction">
                             <Frame  Margin="0" Padding="0"  VerticalOptions="Center" >
                                 <VerticalStackLayout  BackgroundColor="DarkGreen"   MinimumHeightRequest="30"  >
-
-
                                     <FlexLayout Direction="Row"  JustifyContent="SpaceBetween" AlignItems="Center" Wrap="Wrap">
-
-                                            <Label Grid.Row="0" Grid.Column="0" TextColor="white" FontAttributes="Bold" Padding="10,0,0,0" Text="{Binding ProductName}"/>
+                                        <Label Grid.Row="0" Grid.Column="0" TextColor="white" FontAttributes="Bold" Padding="10,0,0,0" Text="{Binding ProductName}"/>
                                             <Label Grid.Row="0" Grid.Column="1"  TextColor="Yellow"  Text="{Binding SaleValue}"/>
                                             <Label Grid.Row="0" Grid.Column="2"  TextColor="PaleVioletRed" FontAttributes="Bold"  Text="{Binding AgentName}"/>
                                         <Label Grid.Row="0" Grid.Column="3"   TextColor="Yellow"  Text="{Binding DateString}" Padding="0,0,10,0" />
@@ -83,6 +80,9 @@
 
 
                 </CollectionView>
+                </StackLayout>
+                </ScrollView>
+
             </VerticalStackLayout>
 
 
