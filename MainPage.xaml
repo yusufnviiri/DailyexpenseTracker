@@ -30,7 +30,7 @@
                     <Frame CornerRadius="5"
                BorderColor="Black"
                        WidthRequest="150" HeightRequest="40"
-                       BackgroundColor="DarkGreen"    
+                       
                        Padding="5">
 
                         <Label Text="Products" HorizontalOptions="Center" HorizontalTextAlignment="Center"   VerticalTextAlignment="Center" WidthRequest="100" HeightRequest="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" TextColor="White" FontSize="14" />

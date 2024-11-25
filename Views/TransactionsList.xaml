@@ -4,6 +4,7 @@
              x:Class="attendance.Views.TransactionsList"
              xmlns:model="clr-namespace:attendance.Models"
              xmlns:viewmodel="clr-namespace:attendance.ViewModel"
+                MaximumWidthRequest="400" 
              x:DataType="viewmodel:TransactionViewModel"
              Title="{Binding Title}">
     <Border Stroke="{StaticResource Purple700}"   StrokeThickness="2" MaximumWidthRequest="400"  MinimumWidthRequest="200">
@@ -14,14 +15,10 @@
             <VerticalStackLayout MaximumWidthRequest="400">
                 <Grid ColumnDefinitions="*,*" RowDefinitions="*" Margin="0,20,0,20">
 
-                    <Button MaximumWidthRequest="170" MaximumHeightRequest="90"  Text="Get Transactions"  Margin="8" FontSize="14" Grid.Row="0" Grid.Column="0" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetTransactionsFromDbCommand}"  />
-                    <Button MaximumWidthRequest="100" MaximumHeightRequest="90"  Text="Home"  Margin="8" FontSize="14" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsNotBusy}" Command="{Binding BackHomeCommand}"  />
-
+                    <Button MaximumWidthRequest="100" MaximumHeightRequest="60"  Text="REFRESH"  Margin="8" FontSize="13" Grid.Row="0" Grid.Column="0" IsEnabled="{Binding IsNotBusy}" Command="{Binding GetTransactionsFromDbCommand}"  />
+                    <Button MaximumWidthRequest="100" MaximumHeightRequest="90"  Text="HOME"  Margin="8" FontSize="13" Grid.Row="0" Grid.Column="1" IsEnabled="{Binding IsNotBusy}" Command="{Binding BackHomeCommand}"  />
                 </Grid>
                 <Grid ColumnDefinitions="*,*" RowDefinitions="*,*" Margin="0,20,0,20"  BackgroundColor="SaddleBrown" Padding="1">
-
-
-
                     <Label HorizontalTextAlignment="Start" MinimumWidthRequest="100" FontAttributes="Bold"  Margin="0,9" FontSize="14"
     Text="Sort parameters"     VerticalOptions="Center" HorizontalOptions="Center" TextColor="WhiteSmoke"  Grid.Row="0" Grid.ColumnSpan="2"  />
                     <FlexLayout Direction="Row"  Grid.Row="1" Grid.ColumnSpan="2" 

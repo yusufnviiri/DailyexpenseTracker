@@ -32,22 +32,21 @@
                         <Frame CornerRadius="5" 
                                BorderColor="Black"
                        WidthRequest="150" HeightRequest="40"
-                       BackgroundColor="DarkGreen"    
+                        
                        Padding="5">
 
-                            <Label Text="Products" HorizontalOptions="Center" HorizontalTextAlignment="Center"   VerticalTextAlignment="Center" WidthRequest="100" HeightRequest="20" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" TextColor="White" FontSize="14" />
+                            <Label Text="Products" HorizontalOptions="Center" HorizontalTextAlignment="Center"   VerticalTextAlignment="Center" WidthRequest="100" HeightRequest="20"    FontAttributes="Bold" Grid.Row="0" Grid.Column="0" FontSize="13" />
                         </Frame>
 
-                        <Button WidthRequest="150" HeightRequest="35" Grid.Row="1" Grid.Column="0" Text="New Product" BackgroundColor="Blue" Clicked="CreateProduct" />
-                        <Button WidthRequest="150" HeightRequest="35" Grid.Row="2" Grid.Column="0" Text="All Products" BackgroundColor="Blue" Clicked="GetProducts"  />
+                        <Button WidthRequest="150" HeightRequest="35" Grid.Row="1" Grid.Column="0" Text="New Product" TextTransform="Uppercase" FontSize="13" BackgroundColor="Blue" Clicked="CreateProduct" />
+                    <Button WidthRequest="150" HeightRequest="35" Grid.Row="2" Grid.Column="0" Text="All Products" BackgroundColor="Blue" TextTransform="Uppercase" FontSize="13" Clicked="GetProducts"  />
 
-                        <Frame CornerRadius="5" Grid.Row="0" Grid.Column="1" BorderColor="Black" WidthRequest="150" HeightRequest="40"         BackgroundColor="DarkGreen"     Padding="5">
+                        <Frame CornerRadius="5" Grid.Row="0" Grid.Column="1" BorderColor="Black" WidthRequest="150" HeightRequest="40"            Padding="5">
 
-                            <Label Text="Transactions" HorizontalOptions="Center" HorizontalTextAlignment="Center"   VerticalTextAlignment="Center" WidthRequest="100" HeightRequest="20" FontAttributes="Bold"  TextColor="White" FontSize="14" />
+                            <Label Text="Transactions" HorizontalOptions="Center" HorizontalTextAlignment="Center"   VerticalTextAlignment="Center" WidthRequest="100" HeightRequest="20" FontAttributes="Bold"   FontSize="13" />
                         </Frame>
-
-                        <Button WidthRequest="150" HeightRequest="35" Grid.Row="1" Grid.Column="1" Text="New Transaction" BackgroundColor="Blue" Clicked="CreateTransaction" />
-                        <Button WidthRequest="150" HeightRequest="35"   Grid.Row="2" Grid.Column="1" Text="All Transactions" Clicked="GetTransactions" BackgroundColor="Blue"   />
+                    <Button WidthRequest="150" HeightRequest="35" Grid.Row="1" Grid.Column="1" Text="New Transaction" BackgroundColor="Blue" TextTransform="Uppercase" FontSize="13" Clicked="CreateTransaction" />
+                    <Button WidthRequest="150" HeightRequest="35"   Grid.Row="2" Grid.Column="1" Text="All Transactions" Clicked="GetTransactions" TextTransform="Uppercase" FontSize="13" BackgroundColor="Blue"   />
 
                     </Grid>
                 </VerticalStackLayout>
