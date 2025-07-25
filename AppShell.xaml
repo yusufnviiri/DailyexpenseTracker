@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:attendance"
     xmlns:view="clr-namespace:attendance.Views"
     Shell.FlyoutBehavior="Disabled"
-    Title="attendance">
+    Title="Products Catalogue">
 
     <ShellContent
         Title="Home"
