@@ -1,4 +1,5 @@
-﻿using attendance.Services;
+﻿using attendance.Context;
+using attendance.Services;
 using attendance.ViewModel;
 using attendance.Views;
 using CommunityToolkit.Maui;
@@ -33,17 +34,27 @@ namespace attendance
 
             builder.Services.AddTransient<TransactionDetailsPopUpViewModel>();
             builder.Services.AddTransient<CreateTransaction>();
+            builder.Services.AddDbContext<AppDbContext>();
 
 
 
-
-
+            // Initialize the database
+           
 
 #if DEBUG
             builder.Logging.AddDebug();
+
 #endif
 
-            return builder.Build();
+            var app = builder.Build();
+
+            // Initialize the database
+            using (var scope = app.Services.CreateScope())
+            {
+                var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+                db.Database.EnsureCreated(); // Creates database if it doesn't exist
+            }
+            return app;
         }
     }
 }
